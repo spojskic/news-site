@@ -89,6 +89,27 @@ export const deleteNews = async (req, res) => {
   );
 };
 
+export const updateNews = async (req, res) => {
+  if (!req.body) {
+    return;
+  }
+  const id = req.params.id;
+  const title = req.body.title;
+  const description = req.body.description;
+
+  await connection.query(
+    "UPDATE news SET title = ?, description = ? WHERE id = ?",
+    [title, description, id],
+    (err, data, fields) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      res.status(201).json({ status: "success", message: "News Updated!" });
+    }
+  );
+};
+
 export const getComments = async (req, res) => {
   const id = req.params.id;
   await connection.query(
@@ -122,6 +143,25 @@ export const postComment = async (req, res) => {
         return;
       }
       res.status(201).json({ status: "success", message: "Comment Added!" });
+    }
+  );
+};
+
+export const deleteComment = async (req, res) => {
+  const id = req.params.id;
+  if (!id) {
+    return;
+  }
+
+  await connection.query(
+    "DELETE FROM comments WHERE id = ?",
+    [parseInt(id)],
+    (err, data, fields) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      res.status(201).json({ status: "success", message: "Comment Deleted" });
     }
   );
 };

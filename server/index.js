@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import newsRoutes from "./routes/news.js";
+import userRoutes from "./routes/users.js";
 
 const app = express();
 const PORT = 8081;
@@ -14,6 +15,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/news", newsRoutes);
+app.use("/user", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running at port ${PORT}`);
