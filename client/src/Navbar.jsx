@@ -1,32 +1,29 @@
-import { useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  const user = localStorage.getItem("user");
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const history = useHistory();
+  const location = useLocation();
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")));
+  }, [location]);
 
   const logout = () => {
-    localStorage.removeItem("user");
-    history.go(0);
+    localStorage.clear();
+    history.push("/");
   };
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href={user ? "/home" : "/"}>
           Navbar
         </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        ></button>
         {!user ? (
           <button
             type="button"
-            class="btn btn-primary"
+            className="btn btn-primary"
             onClick={() => {
               history.push("/");
             }}
@@ -34,7 +31,7 @@ const Navbar = () => {
             Login
           </button>
         ) : (
-          <button type="button" class="btn btn-danger" onClick={logout}>
+          <button type="button" className="btn btn-danger" onClick={logout}>
             Logout
           </button>
         )}
