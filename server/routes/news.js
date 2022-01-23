@@ -19,7 +19,7 @@ router.delete("/:id", deleteNews);
 router.patch("/:id", updateNews);
 
 router.get("/comments/:id", getComments);
-router.post("/comments/:id", postComment);
+router.post("/comments", postComment);
 router.delete("/comments/:id", deleteComment);
 
 export default router;

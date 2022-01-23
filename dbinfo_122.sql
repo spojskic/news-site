@@ -36,6 +36,8 @@ SELECT * FROM users;
 INSERT INTO news(title, description, imageURL) VALUE('testna novost', 'kjhashkjfgs gsgg dfgdf gdfgdgdf gdfgsdgdf gfdgdfgfd dsfewf fdsfsdfsd gfdgdf', 'www.test.com');
 INSERT INTO news(title, description, imageURL) VALUE('testna novost 2', 'kjhashkjfgs gsgg dfgdf gdfgdgdf gdfgsdgdf gfdgdfgfd dsfewf fdsfsdfsd gfdgdf', 'www.test2.com');
 INSERT INTO news(title, description, imageURL) VALUE('testna novost 3', 'kjhashkjfgs gsgg dfgdf gdfgdgdf gdfgsdgdf gfdgdfgfd dsfewf fdsfsdfsd gfdgdf', 'www.test3.com');
+
+INSERT INTO news(title, description, imageURL) VALUE('testna novost 3', 'kjhashkjfgs gsgg dfgdf gdfgdgdf gdfgsdgdf gfdgdfgfd dsfewf fdsfsdfsd gfdgdf', 'https://neteco.gr/wp-content/uploads/2019/09/technews.jpg');
 SELECT * FROM news;
 
 INSERT INTO comments(comment, newsId, userId) VALUE('testni komentar', 1, 1);

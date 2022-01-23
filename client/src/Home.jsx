@@ -21,12 +21,12 @@ const Home = () => {
 
   return (
     <div
-      className="row row-cols-1 row-cols-md-3 g-4 mt-2 w-100"
+      className="container m-auto row row-cols-1 row-cols-md-3 g-4 mt-2 w-100"
       style={{ cursor: "pointer" }}
     >
       {news.map((n) => (
-        <div onClick={() => history.push(`home/${n.id}`)}>
-          <News key={n.id} data={n} />
+        <div key={n.id} onClick={() => history.push(`home/${n.id}`)}>
+          <News data={n} />
         </div>
       ))}
     </div>

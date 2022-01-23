@@ -59,7 +59,9 @@ export const loginUser = async (req, res) => {
         return;
       }
       if (data[0].username === username && data[0].password === password) {
-        res.cookie("profile", data[0], { httpOnly: true });
+        res.send(data[0]);
+      } else {
+        res.sendStatus(404);
       }
     }
   );
