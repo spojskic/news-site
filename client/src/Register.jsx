@@ -80,6 +80,14 @@ const Register = () => {
                     </button>
                   </div>
                   <hr className="my-4" />
+                  <div className="d-grid">
+                    <button
+                      className="btn btn-secondary btn-login text-uppercase fw-bold"
+                      onClick={() => history.push("/")}
+                    >
+                      Login
+                    </button>
+                  </div>
                 </form>
               </div>
             </div>

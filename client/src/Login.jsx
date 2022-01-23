@@ -65,6 +65,14 @@ const Login = () => {
                     </button>
                   </div>
                   <hr className="my-4" />
+                  <div className="d-grid">
+                    <button
+                      className="btn btn-secondary btn-login text-uppercase fw-bold"
+                      onClick={() => history.push("/register")}
+                    >
+                      Go to Registration
+                    </button>
+                  </div>
                 </form>
               </div>
             </div>
