@@ -66,3 +66,68 @@ export const loginUser = async (req, res) => {
     }
   );
 };
+
+export const getUsers = async (req, res) => {
+  await connection.query("SELECT * FROM users", (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    res.send(data);
+  });
+};
+
+export const changeUserStatus = async (req, res) => {
+  const id = req.params.id;
+  await connection.query(
+    "SELECT * FROM users WHERE id = ?",
+    [id],
+    async (err, data) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      if (data[0].status === "aktivan") {
+        await connection.query(
+          "UPDATE users SET status = 'neaktivan' WHERE id = ?",
+          [id],
+          (err, data) => {
+            if (err) {
+              console.log(err);
+              return;
+            }
+          }
+        );
+      } else {
+        await connection.query(
+          "UPDATE users SET status = 'aktivan' WHERE id = ?",
+          [id],
+          (err, data) => {
+            if (err) {
+              console.log(err);
+              return;
+            }
+          }
+        );
+      }
+      res.sendStatus(200);
+    }
+  );
+};
+
+export const deleteUser = async (req, res) => {
+  const id = req.params.id;
+  await connection.query(
+    "DELETE FROM users WHERE id = ?",
+    [id],
+    (err, data) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+
+      res.sendStatus(200);
+    }
+  );
+};
