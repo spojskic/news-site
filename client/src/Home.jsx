@@ -1,11 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import News from "./News";
 
 const Home = () => {
   const [news, setNews] = useState([]);
-  const history = useHistory();
 
   useEffect(() => {
     const getData = async () => {
