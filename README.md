@@ -88,7 +88,6 @@ News site where you can register and comment on any news post! After first regis
 * [React.js](https://reactjs.org/)
 * [NodeJS](https://nodejs.org/en/)
 * [ExpressJS](https://expressjs.com/)
-* [ExpressJS](https://expressjs.com/)
 * [Axios](https://www.npmjs.com/package/axios)
 * [Nodemon](https://www.npmjs.com/package/nodemon)
 * [MySQL](https://www.mysql.com/)
