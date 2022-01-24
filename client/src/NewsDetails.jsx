@@ -53,8 +53,7 @@ const NewsDetails = () => {
   return (
     <div className="container">
       <h1 className="my-4">
-        Title <br></br>
-        <small>{news.title}</small>
+        {news.title} <br></br>
       </h1>
 
       <div className="row">
@@ -84,13 +83,14 @@ const NewsDetails = () => {
         </div>
       </div>
 
-      <div className="row mt-5">
+      <div className="row mt-5 w-50">
         <h4>Comments</h4>
         {comments.map((comment) => (
-          <div key={comment.id} className="mt-2">
+          <div key={comment.id}>
             {user.role === "admin" ? (
-              <button
-                className="btn btn-outline-danger"
+              <p
+                className="btn"
+                style={{ paddingTop: "18px" }}
                 onClick={async () => {
                   await axios.delete(
                     `http://localhost:8081/news/comments/${comment.id}`
@@ -101,8 +101,8 @@ const NewsDetails = () => {
                   setComments(com.data);
                 }}
               >
-                X
-              </button>
+                &#10060;
+              </p>
             ) : (
               <></>
             )}
