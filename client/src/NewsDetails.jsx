@@ -90,7 +90,7 @@ const NewsDetails = () => {
           <div key={comment.id} className="mt-2">
             {user.role === "admin" ? (
               <button
-                className="btn btn-danger"
+                className="btn btn-outline-danger"
                 onClick={async () => {
                   await axios.delete(
                     `http://localhost:8081/news/comments/${comment.id}`

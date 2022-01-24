@@ -20,12 +20,9 @@ const Home = () => {
   }, []);
 
   return (
-    <div
-      className="container m-auto row row-cols-1 row-cols-md-3 g-4 mt-2 w-100"
-      style={{ cursor: "pointer" }}
-    >
+    <div className="container m-auto row row-cols-1 row-cols-md-3 g-4 mt-2 w-100">
       {news.map((n) => (
-        <div key={n.id} onClick={() => history.push(`home/${n.id}`)}>
+        <div key={n.id}>
           <News data={n} />
         </div>
       ))}

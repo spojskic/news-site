@@ -11,9 +11,6 @@ const News = ({ data }) => {
     setUser(JSON.parse(localStorage.getItem("user")));
   }, [location]);
 
-  //TO DO
-  const edit = () => {};
-
   const deleteNews = async () => {
     await axios.delete(`http://localhost:8081/news/${data.id}`);
     history.go(0);
@@ -25,8 +22,9 @@ const News = ({ data }) => {
         <img
           src={data.imageURL}
           className="card-img-top"
-          style={{ height: "280px" }}
+          style={{ height: "280px", cursor: "pointer" }}
           alt="..."
+          onClick={() => history.push(`home/${data.id}`)}
         />
         <div className="card-body">
           <h4 className="card-title">{data.title}</h4>
@@ -35,7 +33,9 @@ const News = ({ data }) => {
               <>
                 <button
                   className="btn btn-outline-primary buttons"
-                  onClick={edit}
+                  onClick={() => {
+                    history.push(`/home/edit/${data.id}`);
+                  }}
                 >
                   Edit
                 </button>
