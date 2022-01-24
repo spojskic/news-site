@@ -17,8 +17,12 @@ const Login = () => {
 
     try {
       const user = await axios.post("http://localhost:8081/user/login", data);
-      localStorage.setItem("user", JSON.stringify(user.data));
-      history.push("/home");
+      if (user.data.status === "aktivan") {
+        localStorage.setItem("user", JSON.stringify(user.data));
+        history.push("/home");
+      } else {
+        alert("You are not active!");
+      }
     } catch (error) {
       console.log(error);
     }

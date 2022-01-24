@@ -65,7 +65,7 @@ const NewsDetails = () => {
           <h3 className="my-3">News sumary</h3>
           <p>{news.description}</p>
 
-          {user.status === "aktivan" ? (
+          {user.role === "user" ? (
             <form onSubmit={postComment}>
               <input
                 type="text"
