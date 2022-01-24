@@ -9,7 +9,6 @@ const Login = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-
     const data = {
       username: username,
       password: password,
@@ -21,7 +20,11 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(user.data));
         history.push("/home");
       } else {
-        alert("You are not active!");
+        alert(
+          "You are not active user! Please contact admin to make you an active user."
+        );
+        setUsername("");
+        setPassword("");
       }
     } catch (error) {
       console.log(error);
@@ -51,6 +54,7 @@ const Login = () => {
                       id="floatingInput"
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
+                      required
                     />
                     <label htmlFor="floatingInput">Username</label>
                   </div>
@@ -58,10 +62,9 @@ const Login = () => {
                     <input
                       type="password"
                       className="form-control"
-                      id="floatingPassword"
-                      placeholder="Password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
+                      required
                     />
                     <label htmlFor="floatingPassword">Password</label>
                   </div>

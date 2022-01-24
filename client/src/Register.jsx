@@ -46,6 +46,7 @@ const Register = () => {
                       id="floatingInput"
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
+                      required
                     />
                     <label htmlFor="floatingInput">Username</label>
                   </div>
@@ -54,9 +55,9 @@ const Register = () => {
                       type="password"
                       className="form-control"
                       id="floatingPassword"
-                      placeholder="Password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
+                      required
                     />
                     <label htmlFor="floatingPassword">Password</label>
                   </div>
@@ -65,9 +66,9 @@ const Register = () => {
                       type="password"
                       className="form-control"
                       id="floatingPassword"
-                      placeholder="Password"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
                     />
                     <label htmlFor="floatingPassword">Password</label>
                   </div>
