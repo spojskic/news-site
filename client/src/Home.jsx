@@ -17,6 +17,14 @@ const Home = () => {
     getData();
   }, []);
 
+  if (news.length === 0) {
+    return (
+      <div className="mx-auto mt-5 text-center">
+        No posts to show! Please contact admin to add news!
+      </div>
+    );
+  }
+
   return (
     <div className="container m-auto row row-cols-1 row-cols-md-3 g-4 mt-2 w-100">
       {news.map((n) => (

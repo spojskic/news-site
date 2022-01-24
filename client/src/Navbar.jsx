@@ -28,14 +28,24 @@ const Navbar = () => {
         </span>
         <div>
           {user?.role === "admin" && (
-            <button
-              className="btn btn-outline-primary mx-2"
-              onClick={() => {
-                history.push("/home/add");
-              }}
-            >
-              Add News
-            </button>
+            <>
+              <button
+                className="btn btn-outline-primary"
+                onClick={() => {
+                  history.push("/users");
+                }}
+              >
+                Edit Users
+              </button>
+              <button
+                className="btn btn-outline-primary mx-2"
+                onClick={() => {
+                  history.push("/home/add");
+                }}
+              >
+                Add News
+              </button>
+            </>
           )}
 
           {!user ? (
