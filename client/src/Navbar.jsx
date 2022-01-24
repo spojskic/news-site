@@ -24,7 +24,7 @@ const Navbar = () => {
             user ? history.push("/home") : history.push("/");
           }}
         >
-          Home
+          News
         </span>
         <div>
           {user?.role === "admin" && (

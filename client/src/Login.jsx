@@ -29,8 +29,13 @@ const Login = () => {
       <div className="container">
         <div className="row">
           <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div className="card border-0 shadow rounded-3 my-5">
+            <div className="card border-0 shadow rounded-3">
               <div className="card-body p-4 p-sm-5">
+                <img
+                  src="https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                  style={{ width: "100%" }}
+                  alt=""
+                />
                 <h5 className="card-title text-center mb-5 fw-light fs-5">
                   Sign In
                 </h5>
