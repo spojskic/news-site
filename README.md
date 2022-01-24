@@ -91,7 +91,7 @@ News site where you can register and comment on any news post! After first regis
 * [ExpressJS](https://expressjs.com/)
 * [Axios](https://www.npmjs.com/package/axios)
 * [Nodemon](https://www.npmjs.com/package/nodemon)
-* [MySWL](https://www.mysql.com/)
+* [MySQL](https://www.mysql.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
