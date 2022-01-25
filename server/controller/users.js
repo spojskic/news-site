@@ -120,8 +120,18 @@ export const changeUserStatus = async (req, res) => {
 export const deleteUser = async (req, res) => {
   const id = req.params.id;
   await connection.query(
+    "DELETE FROM comments WHERE userId = ?",
+    [parseInt(id)],
+    (err, data, fields) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+    }
+  );
+  await connection.query(
     "DELETE FROM users WHERE id = ?",
-    [id],
+    [parseInt(id)],
     (err, data) => {
       if (err) {
         console.log(err);
