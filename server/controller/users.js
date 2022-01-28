@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "rootroot",
+  password: "root",
   database: "dbinfo_122",
 });
 
@@ -51,21 +51,29 @@ export const loginUser = async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
-  await connection.query(
-    "SELECT * FROM users WHERE username = ?",
-    [username],
-    (err, data) => {
-      if (err) {
-        console.log(err);
-        return;
+  try {
+    await connection.query(
+      "SELECT * FROM users WHERE username = ?",
+      [username],
+      (err, data) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        if (
+          data[0]?.username.length > 0 &&
+          data[0].username === username &&
+          data[0].password === password
+        ) {
+          res.send(data[0]);
+        } else {
+          res.sendStatus(404);
+        }
       }
-      if (data[0].username === username && data[0].password === password) {
-        res.send(data[0]);
-      } else {
-        res.sendStatus(404);
-      }
-    }
-  );
+    );
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getUsers = async (req, res) => {
@@ -120,8 +128,18 @@ export const changeUserStatus = async (req, res) => {
 export const deleteUser = async (req, res) => {
   const id = req.params.id;
   await connection.query(
+    "DELETE FROM comments WHERE userId = ?",
+    [parseInt(id)],
+    (err, data, fields) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+    }
+  );
+  await connection.query(
     "DELETE FROM users WHERE id = ?",
-    [id],
+    [parseInt(id)],
     (err, data) => {
       if (err) {
         console.log(err);
