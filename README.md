@@ -117,11 +117,15 @@ Start your MySQL server and run the script included in the project.
    ```sh
    npm install
    ```
-3. Open server folder in Visual Studio 2022 and start the server
+3. Open server folder and install NPM packages
+   ```sh
+   npm install
+   ```
+4. Start client
    ```sh
    npm start
    ```
-4. Start client
+5. Start server
    ```sh
    npm start
    ```
